@@ -18,7 +18,7 @@ const AddStudent = ({ onStudentAdded }) => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      const res = await axios.post("http://localhost:5000/api/students", formData);
+      const res = await axios.post("https://realcomputers.onrender.com/api/students", formData);
       alert("Student added successfully!");
       onStudentAdded(res.data);
 
