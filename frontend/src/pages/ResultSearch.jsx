@@ -12,7 +12,7 @@ export default function ResultSearch() {
     setResult(null);
 
     try {
-      const res = await fetch("http://localhost:5000/api/results/search", {
+      const res = await fetch("https://realcomputers.onrender.com/api/results/search", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ roll, dob }),
