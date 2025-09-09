@@ -1,6 +1,8 @@
 import { motion } from "framer-motion";
+import { useNavigate } from "react-router-dom";
 
 export default function HeroSection() {
+  const navigate = useNavigate();
   return (
     <section className="relative h-[90vh] flex items-center">
       {/* Background Video */}
@@ -37,18 +39,20 @@ export default function HeroSection() {
         </motion.p>
 
         <div className="flex flex-col md:flex-row gap-4 justify-center md:justify-start">
-          <a
-            href="/courses"
+           <button
+            type="button"
+            onClick={() => navigate("/courses")}
             className="bg-yellow-400 text-black font-semibold px-6 py-3 rounded-lg shadow-md hover:bg-yellow-300"
-          >
+             >
             Explore Courses
-          </a>
-          <a
-            href="/admission"
-            className="bg-transparent border border-white px-6 py-3 rounded-lg shadow-md hover:bg-white hover:text-blue-700"
-          >
-            Apply Now
-          </a>
+          </button>
+          <button
+          type="button"
+          onClick={() => navigate("/admission")}
+          className="bg-transparent border border-white px-6 py-3 rounded-lg shadow-md hover:bg-white hover:text-blue-700"
+        >
+      Apply Now
+        </button>
         </div>
       </div>
     </section>
