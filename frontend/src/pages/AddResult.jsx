@@ -22,7 +22,7 @@ const AddResult = ({ onResultAdded }) => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      const res = await axios.post("http://localhost:5000/api/results/add", formData);
+      const res = await axios.post("https://realcomputers.onrender.com/api/results/add", formData);
 
       setMessage("Result added successfully!");
       onResultAdded(res.data); // 👈 naya result list me add hoga
