@@ -6,7 +6,7 @@ const ResultList = () => {
 
   useEffect(() => {
     const fetchResults = async () => {
-      const res = await axios.get("http://localhost:5000/api/results");
+      const res = await axios.get("https://realcomputers.onrender.com/api/results");
       setResults(res.data);
     };
     fetchResults();
