@@ -16,7 +16,7 @@ function AdmissionForm() {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      await axios.post("http://localhost:5000/api/contacts", formData);
+      await axios.post("https://realcomputers.onrender.com/api/contacts", formData);
       alert("Message sent successfully!");
       setFormData({ name: "", email: "", message: "" });
     } catch (error) {
