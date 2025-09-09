@@ -13,7 +13,7 @@ const ResultList = () => {
   }, []);
 
   const handleDelete = async (id) => {
-    await axios.delete(`http://localhost:5000/api/results/${id}`);
+    await axios.delete(`https://realcomputers.onrender.com/api/results/${id}`);
      alert("Result deleted successfully!");
     setResults(results.filter((r) => r._id !== id));
   };
