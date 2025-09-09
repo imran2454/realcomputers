@@ -14,7 +14,7 @@ function CourseManager() {
   // Fetch all courses
   const fetchCourses = async () => {
     try {
-      const res = await axios.get("http://localhost:5000/api/courses");
+      const res = await axios.get("https://realcomputers.onrender.com/api/courses");
       setCourses(res.data);
     } catch (error) {
       console.error("Error fetching courses:", error);
@@ -34,7 +34,7 @@ function CourseManager() {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      await axios.post("http://localhost:5000/api/courses", formData);
+      await axios.post("https://realcomputers.onrender.com/api/courses", formData);
       alert("Course added successfully!");
       setFormData({ title: "", description: "", duration: "", fees: "" });
       fetchCourses(); // refresh course list
@@ -46,7 +46,7 @@ function CourseManager() {
   // Delete course
   const deleteCourse = async (id) => {
     try {
-      await axios.delete(`http://localhost:5000/api/courses/${id}`);
+      await axios.delete(`https://realcomputers.onrender.com/api/courses/${id}`);
       fetchCourses();
     } catch (error) {
       console.error("Error deleting course:", error);

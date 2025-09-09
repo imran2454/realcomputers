@@ -20,7 +20,7 @@ export default function StudentManager() {
 
   const fetchStudents = async () => {
     try {
-      const res = await axios.get("http://localhost:5000/api/students");
+      const res = await axios.get("https://realcomputers.onrender.com/api/students");
       setStudents(res.data);
     } catch (error) {
       console.error("❌ Error fetching students:", error);
@@ -36,7 +36,7 @@ export default function StudentManager() {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      await axios.post("http://localhost:5000/api/students", formData);
+      await axios.post("https://realcomputers.onrender.com/api/students", formData);
       alert("✅ Student Added Successfully!");
       setFormData({
         name: "",
@@ -56,7 +56,7 @@ export default function StudentManager() {
   // ✅ Delete student
   const handleDelete = async (id) => {
     try {
-      await axios.delete(`http://localhost:5000/api/students/${id}`);
+      await axios.delete(`https://realcomputers.onrender.com/api/students/${id}`);
       alert("🗑️ Student Deleted");
       fetchStudents();
     } catch (error) {

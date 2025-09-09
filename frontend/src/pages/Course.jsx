@@ -6,7 +6,7 @@ function Courses() {
 
   const fetchCourses = async () => {
     try {
-      const res = await axios.get("http://localhost:5000/api/courses");
+      const res = await axios.get("https://realcomputers.onrender.com/api/courses");
       setCourses(res.data);
     } catch (error) {
       console.error("Error fetching courses:", error);

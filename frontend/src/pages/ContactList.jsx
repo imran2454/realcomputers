@@ -6,7 +6,7 @@ function ContactList() {
 
   const fetchContacts = async () => {
     try {
-      const res = await axios.get("http://localhost:5000/api/contacts");
+      const res = await axios.get("https://realcomputers.onrender.com/api/contacts");
       setContacts(res.data);
     } catch (error) {
       console.error("Error fetching contacts:", error);
@@ -16,7 +16,7 @@ function ContactList() {
   const handleDelete = async (id) => {
     if (!window.confirm("Are you sure you want to delete this contact?")) return;
     try {
-      await axios.delete(`http://localhost:5000/api/contacts/${id}`);
+      await axios.delete(`https://realcomputers.onrender.com/api/contacts/${id}`);
       setContacts(contacts.filter((c) => c._id !== id));
     } catch (error) {
       console.error("Error deleting contact:", error);
