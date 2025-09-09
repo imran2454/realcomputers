@@ -22,7 +22,7 @@ export default function AboutInstitute() {
             className="rounded-lg shadow-lg mx-auto md:mx-2"
           />
           <h3 className="mt-4 text-xl font-semibold text-gray-800">
-            Dr. Ramesh Prasad
+            Mr.Neeraj kumar Keshari
           </h3>
           <p className="text-blue-600 font-medium">Founder & Director</p>
         </motion.div>

@@ -54,14 +54,14 @@ export default function Navbar() {
           {!isLoggedIn ? (
             <NavLink
               to="/admin"
-              className="bg-green-500 hover:bg-green-700 hover:text-white px-3 py-1 rounded font-bold"
+              className="bg-green-500 hover:bg-green-700 hover:text-white px-3 py-1 rounded font-bold cursor-pointer"
             >
               Login
             </NavLink>
           ) : (
             <button
               onClick={handleLogout}
-              className="bg-red-500 px-3 py-1 rounded font-medium"
+              className="bg-red-500 hover:bg-red-600 hover:text-white px-3 py-1 rounded font-bold cursor-pointer"
             >
               Logout
             </button>

@@ -28,7 +28,7 @@ export default function AdminPanel() {
           case "contactlist":
             return <ContactList/>
       default:
-        return <h2 className="text-3xl font-bold">Welcome to Admin Dashboard</h2>;
+        return <h2 className="text-5xl font-bold text-center mt-[5%]">Welcome to Admin Dashboard</h2>;
     }
   };
 

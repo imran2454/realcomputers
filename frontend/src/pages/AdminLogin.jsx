@@ -45,7 +45,7 @@ export default function AdminLogin() {
         <button
           type="submit"
           disabled={loading}
-          className="bg-blue-600 text-white px-4 py-2 rounded w-full mb-24"
+          className="bg-blue-600 hover:bg-blue-700 cursor-pointer text-white px-4 py-2 rounded w-full mb-24"
         >
           {loading ? "Logging in..." : "Login"}
         </button>
@@ -53,3 +53,4 @@ export default function AdminLogin() {
     </section>
   );
 }
+

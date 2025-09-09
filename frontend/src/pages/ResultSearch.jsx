@@ -5,11 +5,13 @@ export default function ResultSearch() {
   const [dob, setDob] = useState("");
   const [result, setResult] = useState(null);
   const [error, setError] = useState("");
+   const [submitting, setSubmitting] = useState(false);
 
   const handleSubmit = async (e) => {
     e.preventDefault();
     setError("");
     setResult(null);
+    setSubmitting(true);
 
     try {
       const res = await fetch("https://realcomputers.onrender.com/api/results/search", {
@@ -27,6 +29,8 @@ export default function ResultSearch() {
       }
     } catch (err) {
       setError("Server error, try again later.");
+    }finally {
+      setSubmitting(false); // 👈 submit finished → reset button
     }
   };
 
@@ -54,9 +58,12 @@ export default function ResultSearch() {
         />
         <button
           type="submit"
-          className="w-full bg-blue-600 text-white p-2 rounded hover:bg-blue-700 mb-5 cursor-pointer"
+          className={`bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline ${
+            submitting ? "opacity-50 cursor-not-allowed" : ""
+          }`}
+          disabled={submitting}
         >
-          Submit
+           {submitting ? "Submitting..." : "Submit"}
         </button>
       </form>
 

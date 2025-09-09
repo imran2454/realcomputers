@@ -1,13 +1,13 @@
 import React, { useState } from "react";
 import axios from "axios";
 
-
 function AdmissionForm() {
   const [formData, setFormData] = useState({
     name: "",
     email: "",
     message: ""
   });
+  const [isLoading, setIsLoading] = useState(false);
 
   const handleChange = (e) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
@@ -15,19 +15,21 @@ function AdmissionForm() {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+      setIsLoading(true);
     try {
       await axios.post("https://realcomputers.onrender.com/api/contacts", formData);
       alert("Message sent successfully!");
       setFormData({ name: "", email: "", message: "" });
     } catch (error) {
       console.error("Error sending message:", error);
+      alert("Failed to send message. Please try again.");
+    }finally {
+      setIsLoading(false); // Set loading to false when submission ends, regardless of success/failure
     }
   };
 
   return (
-   
-
-   <>
+     <>
 
     <form onSubmit={handleSubmit} className="max-w-lg mx-auto p-6 bg-white shadow-md rounded-lg mt-10 ">
       <h2 className="text-3xl font-bold mb-4 text-center">Addmition Form</h2>
@@ -62,9 +64,12 @@ function AdmissionForm() {
       />
       <button
         type="submit"
-        className="bg-blue-500 text-white px-4 py-2 rounded pointer cursor-pointer"
+        className={`bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline ${
+            isLoading ? "opacity-50 cursor-not-allowed" : ""
+          }`}
+          disabled={isLoading}
       >
-        Send
+        {isLoading ? "Sending..." : "Send"}
       </button>
     </form>
    </>
